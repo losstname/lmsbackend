@@ -1,39 +1,15 @@
-package com.losstname.lmsbackend.domain.model.user;
-
-import jakarta.persistence.*;
+package com.losstname.lmsbackend.interfaces.dto;
 
 /**
  * Created by umrwhk(umrwhk@gmail.com)
  */
-@Entity
-public class Users {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Column(unique = true)
+public class UserRegistrationDto {
     private String username;
     private String password;
-
-    @Column(unique = true)
     private String email;
+    private String role;
 
-    @Enumerated(EnumType.STRING)
-    private Role role;
-
-    public enum Role {
-        ADMIN, INSTRUCTOR, STUDENT
-    }
-
-    public Users() {
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+    public UserRegistrationDto() {
     }
 
     public String getUsername() {
@@ -60,11 +36,11 @@ public class Users {
         this.email = email;
     }
 
-    public Role getRole() {
+    public String getRole() {
         return role;
     }
 
-    public void setRole(Role role) {
+    public void setRole(String role) {
         this.role = role;
     }
 }

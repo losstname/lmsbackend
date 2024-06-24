@@ -3,6 +3,7 @@ package com.losstname.lmsbackend.application.service;
 import com.losstname.lmsbackend.domain.model.user.Users;
 import com.losstname.lmsbackend.domain.repository.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,10 +15,12 @@ import java.util.List;
 public class UsersService {
 
     private final UsersRepository userRepository;
+    private PasswordEncoder passwordEncoder;
 
     @Autowired
-    public UsersService(UsersRepository userRepository) {
+    public UsersService(UsersRepository userRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     public List<Users> getAllUsers() {
@@ -29,6 +32,7 @@ public class UsersService {
     }
 
     public Users createUser(Users users) {
+        users.setPassword(passwordEncoder.encode(users.getPassword()));
         return userRepository.save(users);
     }
 
