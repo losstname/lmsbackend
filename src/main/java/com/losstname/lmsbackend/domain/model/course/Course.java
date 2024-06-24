@@ -1,6 +1,6 @@
 package com.losstname.lmsbackend.domain.model.course;
 
-import com.losstname.lmsbackend.domain.model.user.User;
+import com.losstname.lmsbackend.domain.model.user.Users;
 import jakarta.persistence.*;
 
 /**
@@ -16,7 +16,7 @@ public class Course {
     private String description;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    private User instructor;
+    private Users instructor;
 
     public Course() {
     }
@@ -45,11 +45,11 @@ public class Course {
         this.description = description;
     }
 
-    public User getInstructor() {
+    public Users getInstructor() {
         return instructor;
     }
 
-    public void setInstructor(User instructor) {
+    public void setInstructor(Users instructor) {
         this.instructor = instructor;
     }
 }

@@ -1,7 +1,7 @@
 package com.losstname.lmsbackend.domain.model.enrollment;
 
 import com.losstname.lmsbackend.domain.model.course.Course;
-import com.losstname.lmsbackend.domain.model.user.User;
+import com.losstname.lmsbackend.domain.model.user.Users;
 import jakarta.persistence.*;
 
 /**
@@ -17,7 +17,7 @@ public class Enrollment {
     private Course course;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    private User student;
+    private Users student;
 
     private Double progress;
 
@@ -40,11 +40,11 @@ public class Enrollment {
         this.course = course;
     }
 
-    public User getStudent() {
+    public Users getStudent() {
         return student;
     }
 
-    public void setStudent(User student) {
+    public void setStudent(Users student) {
         this.student = student;
     }
 

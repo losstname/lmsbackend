@@ -6,7 +6,7 @@ import jakarta.persistence.*;
  * Created by umrwhk(umrwhk@gmail.com)
  */
 @Entity
-public class User {
+public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -22,7 +22,7 @@ public class User {
         ADMIN, INSTRUCTOR, STUDENT
     }
 
-    public User() {
+    public Users() {
     }
 
     public Long getId() {

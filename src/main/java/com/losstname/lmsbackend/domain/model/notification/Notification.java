@@ -1,6 +1,6 @@
 package com.losstname.lmsbackend.domain.model.notification;
 
-import com.losstname.lmsbackend.domain.model.user.User;
+import com.losstname.lmsbackend.domain.model.user.Users;
 import jakarta.persistence.*;
 
 /**
@@ -13,7 +13,7 @@ public class Notification {
     private Long id;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    private User user;
+    private Users user;
 
     private String message;
     private boolean read;
@@ -29,12 +29,12 @@ public class Notification {
         this.id = id;
     }
 
-    public User getUser() {
+    public Users getUser() {
         return user;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUser(Users users) {
+        this.user = users;
     }
 
     public String getMessage() {
