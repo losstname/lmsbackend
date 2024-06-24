@@ -1,4 +1,4 @@
-package com.losstname.lmsbackend.infrastructure.controller;
+package com.losstname.lmsbackend.interfaces.controller;
 
 import com.losstname.lmsbackend.application.service.UsersService;
 import com.losstname.lmsbackend.domain.model.user.Users;
