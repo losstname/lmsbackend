@@ -1,7 +1,10 @@
 package com.losstname.lmsbackend.domain.model.course;
 
+import com.losstname.lmsbackend.domain.model.lesson.Lesson;
 import com.losstname.lmsbackend.domain.model.user.Users;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 /**
  * Created by umrwhk(umrwhk@gmail.com)
@@ -17,6 +20,9 @@ public class Course {
 
     @ManyToOne(fetch = FetchType.EAGER)
     private Users instructor;
+
+    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    private List<Lesson> lessons;
 
     public Course() {
     }
